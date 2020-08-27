@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string></string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>import Foundation
+import Quick
+import Nimble
+@testable import Swift_Enterprise
+
+class EMSPhoneVerificationPresenterSpec: QuickSpec {
+
+    override func spec() {
+
+        describe("EMS Phone Verificaiton Presenter") {
+
+            var presenter: EMSPhoneVerificationPresenter!
+            var displayLogic: MockEMSPhoneVerificationView!
+
+            beforeEach {
+                presenter = EMSPhoneVerificationPresenter()
+                displayLogic = MockEMSPhoneVerificationView()
+                presenter.displayLogic = displayLogic
+            }
+
+            context("When presenting localized text") {
+
+                beforeEach {
+                    presenter.presentLocalizedText()
+                }
+
+                it("Should present the correct title") {
+                    expect(displayLogic.title).toEventually(equal(R.string.localizable.ems_phone_verification_title()))
+                }
+
+                it("Should present the correct subtitle") {
+                    expect(displayLogic.subtitle).toEventually(equal(R.string.localizable.ems_phone_verification_subtitle()))
+                }
+
+                it("Should present the correct continue button title") {
+                    expect(displayLogic.continueButtonTitle).toEventually(equal(R.string.localizable.ems_phone_verification_continue_button_title()))
+                }
+
+                it("Should present the correct resend button title") {
+                    expect(displayLogic.resendCodeButtonTitle).toEventually(equal(R.string.localizable.ems_phone_verification_resend_button_title()))
+                }
+
+            }
+
+        }
+
+    }
+
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>B0617C6D-CCAE-4753-8416-D57D4B9E5D3B</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Unit Test Snippet using Quick &amp; Nimble</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Spec</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
