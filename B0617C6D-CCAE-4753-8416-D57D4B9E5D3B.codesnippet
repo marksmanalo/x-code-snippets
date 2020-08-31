@@ -14,18 +14,18 @@ import Quick
 import Nimble
 @testable import Swift_Enterprise
 
-class EMSPhoneVerificationPresenterSpec: QuickSpec {
+class &lt;#ClassName#&gt;Spec: QuickSpec {
 
     override func spec() {
 
-        describe("EMS Phone Verificaiton Presenter") {
+        describe("&lt;#ClassName#&gt;") {
 
-            var presenter: EMSPhoneVerificationPresenter!
-            var displayLogic: MockEMSPhoneVerificationView!
+            var presenter: &lt;#ClassName#&gt;!
+            var displayLogic: &lt;#MockView#&gt;!
 
             beforeEach {
-                presenter = EMSPhoneVerificationPresenter()
-                displayLogic = MockEMSPhoneVerificationView()
+                presenter = &lt;#ClassName#&gt;()
+                displayLogic = &lt;#MockView#&gt;()
                 presenter.displayLogic = displayLogic
             }
 
@@ -63,12 +63,12 @@ class EMSPhoneVerificationPresenterSpec: QuickSpec {
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>Unit Test Snippet using Quick &amp; Nimble</string>
+	<string>Unit Test for Clean Swift Presenter</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Spec</string>
+	<string>Spec For Presenter</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>0</integer>
+	<integer>2</integer>
 </dict>
 </plist>

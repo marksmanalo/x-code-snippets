@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string></string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>class &lt;#ClassName#&gt;Spec: QuickSpec {
+
+    override func spec() {
+
+        describe("&lt;#ClassName#&gt;") {
+
+            var router: &lt;#ClassName#&gt;!
+            var observer: RoutingActionObserver!
+            var routingRequirements: &lt;#MockRoutingRequirements#&gt;!
+
+            beforeEach {
+                routingRequirements = &lt;#MockRoutingRequirements#&gt;()
+                router = &lt;#ClassName#&gt;(
+                    ancestorData: PushCoordinatorAncestorData.makeMock(),
+                    routingRequirements: routingRequirements
+                )
+                observer = RoutingActionObserver(signal: router.routingActionSignal)
+            }
+
+            context("When opting in") {
+
+                beforeEach {
+                    routingRequirements.mockResponse()
+                }
+
+                it("Should route to the address/phone number screen") {
+                    expect(observer.routingAction?.typeId).toEventually(equal(.add))
+                    expect(observer.nextCoord?.typeId).toEventually(
+                        equal(CoordinatorTypeId.emsAddressAndPhoneNumber.rawValue))
+                }
+
+            }
+
+            context("When opting out") {
+
+                beforeEach {
+                    router.optOut()
+                }
+
+                it("Should route to the opt out screen") {
+                    expect(observer.routingAction?.typeId).toEventually(equal(.add))
+                    expect(observer.nextCoord?.typeId).toEventually(
+                        equal(CoordinatorTypeId.emsOptOut.rawValue))
+                }
+
+            }
+
+        }
+
+    }
+
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>9461F019-E7A9-4196-9A24-7CD06A175C15</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Unit Test for Clean Swift Router</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Spec For Router</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
