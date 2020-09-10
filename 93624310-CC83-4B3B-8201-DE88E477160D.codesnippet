@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string></string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>import Foundation
+import Quick
+import Nimble
+import ReactiveSwift
+import AirLib
+
+@testable import Masimo_Swift_E
+
+class &lt;#ClassName#&gt;Spec: QuickSpec {
+
+    override func spec() {
+
+        describe("&lt;#ClassName#&gt;") {
+
+            var interactor: &lt;#ClassName#&gt;!
+            var ssidFetcher: MockSSIDFetcher!
+            var presenter: MockWifiLoginPresenter!
+
+            beforeEach {
+
+                ssidFetcher = MockSSIDFetcher()
+                interactor = &lt;#ClassName#&gt;(ssidFetcher: ssidFetcher)
+                presenter = MockWifiLoginPresenter()
+                interactor.presenter = presenter
+
+            }
+
+            context("When requesting localized text") {
+
+                beforeEach {
+                    interactor.requestLocalizedText()
+                }
+
+                it("Should tell the presenter to present the localized text") {
+                    expect(presenter.didPresentLocalizedText).toEventually(beTrue())
+                }
+            }
+
+        }
+
+    }
+
+}
+
+class MockSSIDFetcher: SSIDFetcher {
+
+    private let ssid: MutableProperty&lt;String?&gt; = MutableProperty(nil)
+    var ssidSignalProducer: SignalProducer&lt;String?, Never&gt; {
+        ssid.signal.producer
+    }
+
+}
+
+class MockWifiLoginPresenter: HubWifiLoginPresentationLogic {
+
+    var didPresentLocalizedText = false
+
+    func present(violations: [WifiCredentialsViolation]) {
+
+    }
+
+    func present(ssid: String) {
+
+    }
+
+    func clearViolationText() {
+
+    }
+
+    func presentLocalizedText() {
+        self.didPresentLocalizedText = true
+    }
+
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>93624310-CC83-4B3B-8201-DE88E477160D</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Snippet for Clean Swift Interactor Spec</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Spec For Interactor</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

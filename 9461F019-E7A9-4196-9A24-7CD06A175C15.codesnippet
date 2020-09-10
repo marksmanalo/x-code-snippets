@@ -9,7 +9,12 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>class &lt;#ClassName#&gt;Spec: QuickSpec {
+	<string>import Foundation
+import Quick
+import Nimble
+@testable import Masimo_Swift_E
+
+class &lt;#ClassName#&gt;Spec: QuickSpec {
 
     override func spec() {
 
